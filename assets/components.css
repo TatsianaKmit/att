@@ -2,6 +2,8 @@
   position: relative;
   cursor: pointer;
   user-select: none;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
 }
 
 .form-select-chosen__input {
@@ -9,15 +11,14 @@
 }
 
 .form-select-chosen__output-wrap {
-  border: 1px solid;
-}
-
-.form-select-chosen__output-wrap:has(+ .form-select-chosen__search.is-visible) {
+  border: none;
+  padding: 6px 16px;
   position: relative;
-  z-index: 3;
+  min-height: 32px;
 }
 
 .form-select-chosen__output {
+  display: block;
 }
 
 .form-select-chosen__output:empty::before {
@@ -33,10 +34,16 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
-  border: 1px solid;
+  border: 1px solid #d1d5db;
   border-top: none;
+  border-radius: 0 0 8px 8px;
   z-index: 2;
   background-color: white;
+  top: calc(100% - 14px);
+  margin-top: 16px;
+  left: -1px;
+  width: calc(100% + 2px);
+  border-top: none;
 }
 
 .form-select-chosen__search:not(.is-visible) {
@@ -44,9 +51,16 @@
 }
 
 .form-select-chosen__search-input {
-  border: 1px solid;
-  margin: 0.25rem;
+  border: 1px solid #d1d5db;
+  margin: 6px;
+  padding: 6px 6px 6px 30px;
   outline: none;
+  border-radius: 6px;
+  position: relative;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 6px center;
+  background-size: 16px;
 }
 
 .form-select-chosen__options {
@@ -58,4 +72,27 @@
 }
 
 .form-select-chosen__option {
+  padding: 6px 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.form-select-chosen__option:last-child {
+  border-bottom: none;
+}
+
+.error-class .form-select-chosen,
+.error-class-custom .form-select-chosen {
+  border-color: #ff0000;
+}
+
+.input-error {
+  color: #ff0000;
+  display: none;
+  margin-top: 6px;
+  padding-left: 8px;
+}
+
+.error-class .input-error,
+.error-class-custom .input-error {
+  display: block;
 }
